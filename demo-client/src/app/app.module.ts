@@ -1,20 +1,32 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PersonListComponent } from './person-list/person-list.component';
 
+import { PersonsListComponent } from './persons/persons-list/persons-list.component';
+import { PersonDetailsComponent } from './persons/person-details/person-details.component';
+import { CreatePersonComponent } from './persons/create-person/create-person.component';
+
+import { PersonService } from './persons/person.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonListComponent
+    PersonsListComponent,
+    PersonDetailsComponent,
+    CreatePersonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PersonService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
